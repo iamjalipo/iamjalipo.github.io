@@ -1,0 +1,137 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", OpenSans, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: rgb(61, 64, 67);
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  margin: 1em auto 0;
+}
+
+.container > * {
+  padding: 120px 25px;
+}
+
+.table-of-contents {
+  position: relative;
+  flex-basis: 260px;
+  background: #F5F5F5;
+}
+
+.table-of-contents p {
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  color: #555;
+}
+
+.table-of-contents ul {
+  position: fixed;
+  /* Chrome (asshole) */
+  position: sticky;
+  /* Firefox */
+  margin-top: 1em;
+  top: 14em;
+}
+
+h1:first-child {
+  margin-top: 20;
+}
+
+.post-content {
+  text-align: justify;
+  text-justify: auto;
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+
+/* TOC part */
+
+.table-of-contents svg {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  bottom: auto;
+  display: none;
+  stroke: #05b78e;
+  transform: translateY(-50%);
+}
+
+.toc-reading svg {
+  display: block;
+}
+
+.table-of-contents ul {
+  width: 200px;
+  counter-reset: articles;
+  padding: 0;
+}
+
+.table-of-contents li {
+  display: block;
+  counter-increment: articles;
+}
+
+.table-of-contents li + li {
+  margin-top: 2em;
+}
+
+.table-of-contents a {
+  display: block;
+  padding: 0 1.1em 0 3.2em;
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+a.toc-reading,
+a.toc-already-read.toc-reading {
+  color: #05b78e;
+  opacity: 1;
+}
+
+a.toc-already-read {
+  opacity: 0.4;
+}
+
+.table-of-contents a:before {
+  content: counter(articles, decimal);
+  position: absolute;
+  bottom: auto;
+  left: 0;
+  top: 50%;
+  width: 36px;
+  height: 36px;
+  line-height: 34px;
+  text-align: center;
+  transform: translateY(-50%);
+  transition: background-color 0.3s ease 0s, color 0.3s ease 0s;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #d9d9d9 inset;
+  color: #4d4d4d;
+}
+
+footer {
+  position: relative;
+  background: #222222;
+  color: #F2F2F2;
+  text-align: center;
+  padding: 50px 25px;
+}
+
+footer a {
+  color: #b2c908;
+}
+
+.heart {
+  font-size: 60px;
+  opacity: 0.1;
+}
